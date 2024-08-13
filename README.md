@@ -3,9 +3,22 @@
 Prometheus Exporter for calculating the position of the sun. Possibly useful in
 solar installation monitoring.
 
-Uses the [suncalc](https://github.com/mourner/suncalc) library.
+Used originally the [suncalc](https://github.com/mourner/suncalc) library.
+Based on [suncalc_exporter](https://github.com/suprememoocow/suncalc_exporter)
+First forked by [barcar/suncalc_exporter](https://github.com/barcar/suncalc_exporter) to add more values from [suncalc3](https://github.com/Hypnos3/suncalc3) version.
+Since the original exporter is unmaintained here my Dockerfile on top - will not upstream due to that.
 
-## Usage
+## Docker usage
+
+1) edit suncalc.env
+
+2) build and run it
+```console
+docker build -t suncalc .
+docker run --rm --env-file suncalc.env suncalc
+```
+
+## cmd tool usage
 
 ```console
 $ node index.js  --latitude -34.1 --longitude 18.1 --listen-port 2922 --help
